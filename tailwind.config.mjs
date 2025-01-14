@@ -16,8 +16,16 @@ export default {
           "linear-gradient(90deg, #336EFF 0%, #E3D000 100%)",
       },
       screens: {
-        xlg: "1400px",
+        xs: "280px",
+        sm: "330px",
+        md: "768px",
+        lg: "1024px",
+        xlg: "1280px",
+        xl: "1400px",
         xxl: "1780px",
+      },
+      boxShadow: {
+        custom: "0px 0px 12px 0px rgba(0, 0, 0, 0.25)",
       },
     },
   },
