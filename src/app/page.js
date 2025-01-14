@@ -1,4 +1,5 @@
 import EnquiryReview from "@/feature/home/EnquiryReview";
+import HomeChamberSlider from "@/feature/home/HomeChamberSlider";
 import HomeSlider from "@/feature/home/HomeSlider";
 import MainWebSite from "@/templates/MainWebsite";
 
@@ -14,8 +15,9 @@ export default function Home() {
   return (
     <MainWebSite>
       <HomeSlider sliders={sliders} />
-      <div className="text-8xl font-extrabold mx-6 md:mx-10 xl:mx-14">
+      <div className="text-8xl font-extrabold mx-6 md:mx-10 xl:mx-14 flex flex-col gap-12">
         <EnquiryReview />
+        <HomeChamberSlider />
       </div>
     </MainWebSite>
   );
