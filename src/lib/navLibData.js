@@ -1,3 +1,5 @@
+import { ServiceData } from "./serviceData";
+
 const navLinks = [
   {
     text: "home",
@@ -9,7 +11,10 @@ const navLinks = [
   },
   {
     text: "Our Services",
-    href: "/our-services",
+    subMenu: ServiceData.map((item) => ({
+      text: item.heading,
+      href: item.href,
+    })),
   },
   {
     text: "Location",
