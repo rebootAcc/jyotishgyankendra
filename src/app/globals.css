@@ -11,3 +11,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.buttonshine {
+  position: relative;
+  overflow: hidden; /* Ensures shine effect stays within the button */
+}
+
+.buttonshine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px; /* Start shine effect outside the button */
+  width: 100px; /* Width of the shine effect */
+  height: 100%;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.908) 50%,
+    rgba(255, 255, 255, 0) 70%
+  );
+
+  opacity: 0.6;
+  transform: skewX(-20deg); /* Add a diagonal shine */
+  animation: shine 2.5s ease-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -150px; /* Start outside */
+  }
+  100% {
+    left: 100%; /* Move completely across */
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.three-line-limit {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
