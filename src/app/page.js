@@ -1,6 +1,7 @@
 import AboutUsDesign from "@/components/global/AboutUsDesign";
 import OurServices from "@/components/home/OurServices";
 import EnquiryReview from "@/feature/home/EnquiryReview";
+import HomeChamberSlider from "@/feature/home/HomeChamberSlider";
 import HomeSlider from "@/feature/home/HomeSlider";
 import MainWebSite from "@/templates/MainWebsite";
 
@@ -29,11 +30,14 @@ export default function Home() {
   return (
     <MainWebSite>
       <HomeSlider sliders={sliders} />
+
       <div className=" xl:p-16 lg:p-8 p-4 flex flex-col lg:gap-16 gap-8">
         <AboutUsDesign content={content} />
         <OurServices />
         <AboutUsDesign content={whyuscontent} />
+
         <EnquiryReview />
+        <HomeChamberSlider />
       </div>
     </MainWebSite>
   );
