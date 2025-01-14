@@ -96,8 +96,8 @@ const EnquiryForm = ({ showheading = true }) => {
               className="!w-full px-4 rounded-md h-[3.5rem] bg-white border border-[#00000050] outline-none placeholder:text-site-main-gray text-site-main-gray text-sm"
             />
           </div>
-          <div className="flex flex-col md:flex-row justify-between items-end w-full">
-            <div className="!w-full flex">
+          <div className="grid md:grid-cols-2 grid-cols-1 gap-4 w-full">
+            <div className="">
               <DatePicker
                 selected={
                   formData.time
@@ -120,7 +120,7 @@ const EnquiryForm = ({ showheading = true }) => {
                 dateFormat="hh:mm aa"
                 placeholderText="Time"
                 required
-                className="px-4 rounded-md h-[3.5rem]  bg-white border border-[#00000050] outline-none placeholder:text-site-main-gray text-site-main-gray text-sm"
+                className="px-4 w-full rounded-md h-[3.5rem]  bg-white border border-[#00000050] outline-none placeholder:text-site-main-gray text-site-main-gray text-sm"
               />
             </div>
             <input

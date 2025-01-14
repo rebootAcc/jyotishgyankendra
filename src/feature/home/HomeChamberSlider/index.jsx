@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 import Slider from "react-slick";
 import SectionHeader from "@/components/global/SectionHeader";
+import HeadingDesign from "@/components/global/HeadingDesign";
 export default function HomeChamberSlider() {
   const [slidesToShow, setSlidesToShow] = useState(4);
   const [autoplaymode, setAutoplayMode] = useState(true);
@@ -17,16 +18,16 @@ export default function HomeChamberSlider() {
         setSlidesToShow(2);
         setAutoplayMode(true);
       } else if (window.innerWidth <= 768) {
-        setSlidesToShow(4);
+        setSlidesToShow(3);
         setAutoplayMode(true);
       } else if (window.innerWidth <= 1000) {
-        setSlidesToShow(5);
-        setAutoplayMode(true);
+        setSlidesToShow(4);
+        setAutoplayMode(false);
       } else if (window.innerWidth <= 1400) {
-        setSlidesToShow(6);
+        setSlidesToShow(4);
         setAutoplayMode(false);
       } else {
-        setSlidesToShow(6);
+        setSlidesToShow(4);
         setAutoplayMode(false);
       }
     };
@@ -60,7 +61,7 @@ export default function HomeChamberSlider() {
 
   return (
     <div className="flex flex-col gap-12">
-      <SectionHeader>Our Chambers</SectionHeader>
+      <HeadingDesign heading={"Our Chamber"} />
       <Slider {...settings}>
         {data.map((item, index) => (
           <div key={index}>
