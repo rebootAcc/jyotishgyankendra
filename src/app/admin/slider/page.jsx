@@ -4,6 +4,11 @@ import AddSlider from "@/feature/adminslider/AddSlider";
 import ManageSliders from "@/feature/adminslider/ManageSliders";
 import AdminDashboardTemplate from "@/templates/AdminDashboardTemplate";
 
+export const metadata = {
+  title: "Jyothish Gyan kendra | Admin Slider",
+  description: "Develop and managed by Rebbot AI PVT. LTD.",
+};
+
 export default async function Slider() {
   const sliders = await getSliders();
   return (

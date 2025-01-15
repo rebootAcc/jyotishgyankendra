@@ -4,10 +4,12 @@ import AddMedia from "@/feature/adminmedia/AddMedia";
 import ManageMedia from "@/feature/adminmedia/ManageMedia";
 import AdminDashboardTemplate from "@/templates/AdminDashboardTemplate";
 
-const Media = async () => {
-  //   const [media, setMedia] = useState([]);
-  //   const [pagination, setPagination] = useState({});
+export const metadata = {
+  title: "Jyothish Gyan kendra | Admin Media",
+  description: "Develop and managed by Rebbot AI PVT. LTD.",
+};
 
+const Media = async () => {
   const { medias, pagination } = await getMedia();
 
   return (

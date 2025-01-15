@@ -1,3 +1,5 @@
+"use client";
+import useClickOutside from "@/hooks/useClickOutside";
 import {
   Chambers,
   Contacts,
@@ -8,24 +10,18 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaFacebook, FaRegWindowClose } from "react-icons/fa";
+import { FaRegWindowClose } from "react-icons/fa";
 import { HiCurrencyRupee } from "react-icons/hi2";
-import { RiWhatsappFill } from "react-icons/ri";
-// import EnquiryBoxComponent from "../EnquiryBoxComponent";
-// import CalculatorEnquiryBox from "../CalculatorEnquiryBox";
 
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedComponent, setSelectedComponent] = useState(null);
 
-  const openModal = (componentName) => {
-    setSelectedComponent(componentName);
-    setModalOpen(true);
-  };
+  const modalRef = useClickOutside(() => setModalOpen(false));
 
   const closeModal = () => {
     setModalOpen(false);
   };
+
   return (
     <footer className="bg-[url('/background/footer-bg.png')] bg-no-repeat bg-cover flex items-center justify-center bg-center">
       <div className="flex flex-col gap-12 bg-[#6699ff]/70 xl:p-16 lg:p-8 p-4 flex-1">
@@ -74,7 +70,7 @@ export default function Footer() {
           <div className="flex flex-col gap-3 lg:gap-7">
             <div className="h-52 lg:h-full w-full lg:w-[10rem] xl:w-60">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4278.664105497438!2d89.4486386!3d26.338120099999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e2fc034eab596f%3A0xb508a5af0de43e0!2sDr.%20Kallol%20Shastri!5e1!3m2!1sen!2sin!4v1734519473024!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4264.48018181621!2d88.435976!3d26.7192292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e441631e787227%3A0xa60ad0369adc598c!2sJyotish%20Gyan%20Kendra%20-%20Best%20Astrologer%20in%20Siliguri!5e1!3m2!1sen!2sin!4v1736936544087!5m2!1sen!2sin"
                 className="border-0"
                 width="100%"
                 height="100%"
@@ -83,16 +79,15 @@ export default function Footer() {
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
-            <Link
-              href="https://pages.razorpay.com/pl_PbhWFtZbOxDWj9/view"
-              target="_blank"
+            <button
+              onClick={() => setModalOpen(true)}
               className="rounded-md px-2 md:px-4 lg:px-2 xlg:px-4 h-[2.5rem] buttonshine bg-gold-gradient text-white bg-custom-gradient-blue-yellow flex justify-center md:gap-2 xlg:gap-4 lg:gap-2 gap-1 items-center border border-white"
             >
               <HiCurrencyRupee className="size-6" />
               <span className="sm:text-xs md:text-base lg:text-[10px] xlg:text-sm xl:text-base">
                 Pay Now
               </span>
-            </Link>
+            </button>
           </div>
         </div>
         <div className="w-full h-0.5 bg-white/40" />
@@ -114,27 +109,46 @@ export default function Footer() {
           </h1>
         </div>
       </div>
-      {/* {modalOpen && (
+      {modalOpen && (
         <div className="fixed top-0 z-[1300] left-0 w-full h-full flex items-center justify-center overflow-y-scroll bg-black bg-opacity-50">
           <div className=" w-full sm:h-[50vh] lg:h-[100vh] justify-center items-center flex flex-col  rounded-lg">
             <div className="w-full flex p-4 justify-end items-center"></div>
             <div className=" w-[95%] md:w-[60%] lg:w-[45%] xl:w-[40%] xxl:w-[30%] z-[1300] relative">
               <button
-                className="bg-primary text-white lg:w-16 right-2  absolute z-[1400] top-2 lg:h-10 sm:w-12 sm:h-8 flex items-center justify-center rounded-lg hover:bg-white hover:text-primary border-2 border-primary"
+                className="bg-primary text-site-main-yellow lg:w-16 right-2 absolute z-[1400] top-2 lg:h-10 sm:w-12 sm:h-8 flex items-center justify-center rounded-lg hover:bg-white hover:text-primary border-2 border-primary"
                 onClick={closeModal}
               >
                 <FaRegWindowClose className="lg:text-2xl sm:text-xl" />
               </button>
-              {selectedComponent === "EnquiryBoxComponent" && (
-                <EnquiryBoxComponent />
-              )}
-              {selectedComponent === "FreeCalculatorEnquiryBox" && (
-                <CalculatorEnquiryBox showheading={true} />
-              )}
+              <div
+                className="flex flex-col lg:flex-row gap-6 items-center relative bg-white p-4 rounded-lg"
+                ref={modalRef}
+              >
+                <Image
+                  src="/images/qr.jpeg"
+                  alt="qr"
+                  width={200}
+                  height={200}
+                />
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-base lg:text-xl font-medium">
+                    Bank Name - Axis Bank Ltd
+                  </h3>
+                  <h3 className="text-base lg:text-xl font-medium">
+                    Account Name - Suvabrata Ghosh
+                  </h3>
+                  <h3 className="text-base lg:text-xl font-medium">
+                    A/C No. 912010040848634
+                  </h3>
+                  <h3 className="text-base lg:text-xl font-medium">
+                    IFSC Code - UTIB0000442
+                  </h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      )} */}
+      )}
     </footer>
   );
 }

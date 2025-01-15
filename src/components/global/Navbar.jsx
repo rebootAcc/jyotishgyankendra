@@ -7,15 +7,24 @@ import React, { useEffect, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import { NavLinksData } from "@/lib/navLibData";
 import { HiCurrencyRupee } from "react-icons/hi2";
+import { FaRegWindowClose } from "react-icons/fa";
+import useClickOutside from "@/hooks/useClickOutside";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null); // Track open dropdown for mobile
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const modalRef = useClickOutside(() => setModalOpen(false));
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const isActive = (path) => {
-    return pathname === path || pathname.startsWith(path);
+    return pathname === path || pathname.includes(path);
   };
 
   useEffect(() => {
@@ -95,9 +104,10 @@ const Navbar = () => {
           ))}
         </ul>
         {/* Contact Us Button */}
-        <Link
-          href="/contact-us"
-          className={`hidden lg:inline-flex items-center gap-2   py-2 px-4 rounded lg:text-base font-medium ${
+        <button
+          type="button"
+          onClick={() => setModalOpen(true)}
+          className={`hidden lg:inline-flex items-center gap-2 py-2 px-4 rounded lg:text-base font-medium ${
             isScrolling
               ? " bg-site-main-yellow text-site-main-blue"
               : "bg-site-main-blue text-white"
@@ -105,7 +115,7 @@ const Navbar = () => {
         >
           <HiCurrencyRupee className="size-6" />
           <span>Pay Now</span>
-        </Link>
+        </button>
         {/* Mobile Menu Button */}
         <button
           type="button"
@@ -140,6 +150,48 @@ const Navbar = () => {
           </span>
         </button>
       </div>
+
+      {modalOpen && (
+        <div className="fixed top-0 z-[1300] left-0 w-full h-full flex items-center justify-center overflow-y-scroll bg-black bg-opacity-50">
+          <div className=" w-full sm:h-[50vh] lg:h-[100vh] justify-center items-center flex flex-col  rounded-lg">
+            <div className="w-full flex p-4 justify-end items-center"></div>
+            <div className=" w-[95%] md:w-[60%] lg:w-[45%] xl:w-[40%] xxl:w-[30%] z-[1300] relative">
+              <button
+                className="bg-primary text-site-main-yellow lg:w-16 right-2 absolute z-[1400] top-2 lg:h-10 sm:w-12 sm:h-8 flex items-center justify-center rounded-lg hover:bg-white hover:text-primary border-2 border-primary"
+                onClick={closeModal}
+              >
+                <FaRegWindowClose className="lg:text-2xl sm:text-xl" />
+              </button>
+              <div
+                className="flex flex-col lg:flex-row gap-6 items-center relative bg-white p-4 rounded-lg"
+                ref={modalRef}
+              >
+                <Image
+                  src="/images/qr.jpeg"
+                  alt="qr"
+                  width={200}
+                  height={200}
+                />
+                <div className="flex flex-col gap-2">
+                  <h3 className="text-base lg:text-xl font-medium">
+                    Bank Name - Axis Bank Ltd
+                  </h3>
+                  <h3 className="text-base lg:text-xl font-medium">
+                    Account Name - Suvabrata Ghosh
+                  </h3>
+                  <h3 className="text-base lg:text-xl font-medium">
+                    A/C No. 912010040848634
+                  </h3>
+                  <h3 className="text-base lg:text-xl font-medium">
+                    IFSC Code - UTIB0000442
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="bg-black/90 absolute top-full w-full left-0 text-white lg:hidden p-6 pb-24 rounded-b-lg h-screen overflow-y-scroll">
@@ -169,33 +221,23 @@ const Navbar = () => {
                             : "h-0 opacity-0"
                         } overflow-hidden flex flex-col rounded`}
                       >
-                        {item.subMenu.map((menu, subIndex) => (
-                          <div
-                            className="text-white flex flex-col gap-6 whitespace-nowrap p-2"
-                            key={subIndex}
-                          >
-                            <h1 className="text-base xlg:text-lg font-semibold flex items-center gap-2">
-                              {menu.heading}
-                              <span className="bg-[linear-gradient(90deg,_#4385F5_0%,_rgba(67,_133,_245,_0.00)_100%)] w-12 h-1"></span>
-                            </h1>
-                            <ul className="flex flex-col gap-4">
-                              {menu.menus.map((link, linkIndex) => (
-                                <li
-                                  key={linkIndex}
-                                  className="text-base xlg:text-lg"
+                        <ul className="flex flex-col gap-4">
+                          {item.subMenu.map((menu, subIndex) => (
+                            <div
+                              className="text-white flex flex-col gap-6 whitespace-nowrap p-2"
+                              key={subIndex}
+                            >
+                              <li className="text-base xlg:text-lg">
+                                <Link
+                                  href={menu.href}
+                                  className="flex items-center gap-2"
                                 >
-                                  <Link
-                                    href={link.href}
-                                    className="flex items-center gap-2"
-                                  >
-                                    <span className="text-primary">&gt;</span>
-                                    {link.text}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
+                                  {menu.text}
+                                </Link>
+                              </li>
+                            </div>
+                          ))}
+                        </ul>
                       </div>
                     )}
                   </div>
