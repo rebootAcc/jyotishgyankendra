@@ -28,15 +28,15 @@ const OurServices = () => {
               </div>
             </div>
             <div className="flex flex-col md:gap-0 gap-1 lg:gap-1 md:w-[70%] w-full">
-              <h1 className="xlg:text-xl lg:text-lg text-sm font-semibold text-site-main-black text-center md:text-start ">
+              <h1 className="xlg:text-xl lg:text-lg md:text-sm text-base font-semibold text-site-main-black text-center md:text-start ">
                 {item.heading}
               </h1>
-              <p className="xlg:text-sm lg:text-xs text-[10px]/[14px]  three-line-limit text-site-main-gray text-center md:text-start">
+              <p className="xlg:text-sm lg:text-xs md:text-[10px]/[14px] text-xs  three-line-limit text-site-main-gray text-center md:text-start">
                 {item.description}
               </p>
               <Link
                 href={item.href}
-                className="px-2 lg:h-[2rem] h-[2rem] buttonshine rounded-md !w-fit flex justify-center items-center text-xs/[0px] lg:text-lg font-semibold bg-custom-gradient-blue-yellow  bg-clip-text text-transparent"
+                className="px-2 lg:h-[2rem] h-[2rem] buttonshine rounded-md !w-fit flex justify-center items-center text-base md:text-xs/[0px] lg:text-lg font-semibold bg-custom-gradient-blue-yellow  bg-clip-text text-transparent"
               >
                 Consult Now &#8599;
               </Link>

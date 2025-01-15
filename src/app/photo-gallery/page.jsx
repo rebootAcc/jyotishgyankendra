@@ -30,7 +30,7 @@ export default async function PhotoGallery() {
   return (
     <MainWebSite>
       <SubBanner heading={"Photo Gallery"} extraLink={"/photo-gallery"} />
-      <div className="mx-5 md:mx-10 grid grid-cols-2 md:grid-cols-3 place-items-stretch xl:grid-cols-4 xl:mx-20 gap-2 md:gap-4 xl:gap-6 mt-16">
+      <div className=" grid grid-cols-2 md:grid-cols-3 place-items-stretch xl:grid-cols-4  gap-2 md:gap-4 xl:gap-6 xl:p-16 lg:p-8 p-4 ">
         {media.length > 0 &&
           media.map((img) => (
             <Image

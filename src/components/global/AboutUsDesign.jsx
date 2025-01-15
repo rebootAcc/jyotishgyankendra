@@ -30,20 +30,20 @@ export default function AboutUsDesign({ content }) {
         <Image
           src={imgsrc}
           alt="best-astrologer"
-          className="rounded-md h-full w-full object-cover"
-          width={1500}
-          height={1500}
+          className="rounded-md  w-full h-full object-cover"
+          width={416}
+          height={410}
         />
       </div>
       <div
         id="left-side"
         className="flex flex-col w-full md:w-[60%] gap-3 lg:gap-4 xl:gap-5"
       >
-        <h1 className="text-site-main-blue font-medium text-lg lg:text-2xl xl:text-4xl">
+        <h1 className="text-site-main-blue font-medium text-xl md:text-lg lg:text-2xl xl:text-4xl">
           {heading}
         </h1>
         <section
-          className="text-xs md:text-[11px]/[15px] lg:text-[13px]/[18px] xlg:text-base text-site-main-gray"
+          className="text-sm md:text-[11px]/[15px] lg:text-[13px]/[18px] xlg:text-base text-site-main-gray"
           dangerouslySetInnerHTML={{ __html: description }}
         ></section>
       </div>

@@ -1,11 +1,12 @@
 "use client";
 import MarqueeCard from "@/components/global/MarqueeCard";
-import { TiLocation } from "react-icons/ti";
+
 import { useEffect, useState } from "react";
 
 import Slider from "react-slick";
-import SectionHeader from "@/components/global/SectionHeader";
+
 import HeadingDesign from "@/components/global/HeadingDesign";
+import { ChambersData } from "@/lib/chamberData";
 export default function HomeChamberSlider() {
   const [slidesToShow, setSlidesToShow] = useState(4);
   const [autoplaymode, setAutoplayMode] = useState(true);
@@ -44,7 +45,7 @@ export default function HomeChamberSlider() {
     infinite: true,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
-    autoplay: autoplaymode,
+    autoplay: true,
     speed: 6000,
     autoplaySpeed: 500,
     arrows: false,
@@ -52,20 +53,13 @@ export default function HomeChamberSlider() {
     lazyLoad: "ondemand",
   };
 
-  const data = [
-    { label: "Siliguri", logo: <TiLocation /> },
-    { label: "Jalpaiguri", logo: <TiLocation /> },
-    { label: "Coochbehar", logo: <TiLocation /> },
-    { label: "Darjeeling", logo: <TiLocation /> },
-  ];
-
   return (
     <div className="flex flex-col gap-6 lg:gap-12">
       <HeadingDesign heading={"Our Chamber"} />
       <Slider {...settings}>
-        {data.map((item, index) => (
+        {ChambersData.map((item, index) => (
           <div key={index}>
-            <MarqueeCard {...item} />
+            <MarqueeCard label={item.heading} link={item.href} />
           </div>
         ))}
       </Slider>

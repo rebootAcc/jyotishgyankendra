@@ -58,7 +58,7 @@ const ChambersPageDesign = ({
           </h1>
           <div
             dangerouslySetInnerHTML={{ __html: pagedescription }}
-            className=" text-site-main-gray text-sm lg:text-base "
+            className=" text-site-main-gray text-base lg:text-lg "
           ></div>
         </div>
         <div className="md:w-[40%] w-full">

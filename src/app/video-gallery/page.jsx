@@ -28,7 +28,7 @@ export default async function VideoGallery() {
   return (
     <MainWebSite>
       <SubBanner heading={"Video Gallery"} extraLink={"/video-gallery"} />
-      <div className="mx-5 md:mx-10 grid grid-cols-2 md:grid-cols-3 place-items-stretch xl:grid-cols-4 xl:mx-20 gap-2 md:gap-4 xl:gap-6 mt-16">
+      <div className="xl:p-16 lg:p-8 p-4 grid grid-cols-2 md:grid-cols-3 place-items-stretch xl:grid-cols-4  gap-2 md:gap-4 xl:gap-6 ">
         {media.length > 0 &&
           media.map((med) => <VideoSlideCard key={med.mediaId} media={med} />)}
       </div>
