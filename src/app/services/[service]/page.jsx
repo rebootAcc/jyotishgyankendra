@@ -20,7 +20,7 @@ const getServiceData = (service) => {
 };
 
 const ServiceDetailPage = async ({ params }) => {
-  const { service } = params;
+  const { service } = await params;
   const data = getServiceData(service);
 
   if (!data) {
