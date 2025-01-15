@@ -5,15 +5,9 @@ import HomeChamberSlider from "@/feature/home/HomeChamberSlider";
 import HomeSlider from "@/feature/home/HomeSlider";
 import MainWebSite from "@/templates/MainWebsite";
 
-export default function Home() {
-  const sliders = [
-    {
-      id: 1,
-      image: {
-        path: "/slider/slider-1.png",
-      },
-    },
-  ];
+export default async function Home() {
+  const pageData = await getPageData();
+  const { sliders } = pageData;
   const content = {
     imgsrc: "/images/abouthome.jpg",
     heading: "Best Trusted Astrologer in Siliguri, North Bengal",
@@ -41,4 +35,17 @@ export default function Home() {
       </div>
     </MainWebSite>
   );
+}
+
+async function getPageData() {
+  try {
+    const sliderRes = await fetch(
+      `${process.env.API_URI}/api/sliders?isActive=true`
+    );
+    const sliders = await sliderRes.json();
+    return { sliders: sliders.sliders };
+  } catch (error) {
+    console.log(error);
+    return { sliders: [] };
+  }
 }

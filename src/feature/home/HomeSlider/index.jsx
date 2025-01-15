@@ -12,7 +12,7 @@ export default function HomeSlider({ sliders }) {
       autoplay={{ duration: 3000 }}
     >
       {sliders.map((slider) => (
-        <SwiperSlide key={slider.id}>
+        <SwiperSlide key={slider._id}>
           <Image
             width={1440}
             height={600}
