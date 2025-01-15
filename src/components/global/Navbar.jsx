@@ -48,7 +48,7 @@ const Navbar = () => {
           />
         </Link>
 
-        <ul className="hidden lg:flex items-center pt-4 justify-center gap-5">
+        <ul className="hidden lg:flex items-center  justify-center gap-5">
           {NavLinksData.map((item, index) => (
             <li key={index} className="relative group">
               {item.href ? (
@@ -97,7 +97,11 @@ const Navbar = () => {
         {/* Contact Us Button */}
         <Link
           href="/contact-us"
-          className="hidden lg:inline-flex items-center gap-2 bg-site-main-blue text-white py-2 px-4 rounded lg:text-base font-medium"
+          className={`hidden lg:inline-flex items-center gap-2   py-2 px-4 rounded lg:text-base font-medium ${
+            isScrolling
+              ? " bg-site-main-yellow text-site-main-blue"
+              : "bg-site-main-blue text-white"
+          }`}
         >
           <HiCurrencyRupee className="size-6" />
           <span>Pay Now</span>
