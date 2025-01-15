@@ -12,6 +12,9 @@ const getServiceData = (service) => {
       heading: item.heading,
       pagedescription: item.pagedescription,
       servicetitle: item.servicetitle,
+      metaTitle: item.metaTitle,
+      metaDescription: item.metaDescription,
+      href: item.href,
     };
     return acc;
   }, {});
@@ -19,7 +22,16 @@ const getServiceData = (service) => {
   return ServiceAllData[service] || null;
 };
 
-const ServiceDetailPage = async ({ params }) => {
+export async function generateMetadata({ params }) {
+  const { service } = await params;
+  const data = getServiceData(service);
+
+  return {
+    title: data.metaTitle,
+    description: data.metaDescription,
+  };
+}
+export default async function ServiceDetailPage({ params }) {
   const { service } = await params;
   const data = getServiceData(service);
 
@@ -39,9 +51,7 @@ const ServiceDetailPage = async ({ params }) => {
       />
     </MainWebSite>
   );
-};
-
-export default ServiceDetailPage;
+}
 
 export const generateStaticParams = async () => {
   return ServiceData.map((item) => {

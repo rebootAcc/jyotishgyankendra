@@ -1,6 +1,11 @@
 import LoginForm from "@/feature/reboots/LoginForm";
 import Image from "next/image";
 
+export const metadata = {
+  title: "Jyotish Gyan Kendra | Login",
+  description: "Develop and managed by Reboot AI PVT. LTD.",
+};
+
 export default function Login() {
   return (
     <div className="flex justify-center h-screen bg-[#EDF4F7] overflow-y-scroll bg-no-repeat bg-cover bg-center overflow-x-hidden items-center ">

@@ -21,7 +21,7 @@ export default function VideoSlideCard({ media }) {
     <>
       <div className="flex relative group">
         <Image
-          src={media.mediaVideoThumb.path}
+          src={media.mediaVideoThumb?.path}
           alt="video thumb"
           width={306}
           height={390}

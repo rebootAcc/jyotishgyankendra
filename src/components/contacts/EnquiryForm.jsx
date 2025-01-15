@@ -59,7 +59,9 @@ const EnquiryForm = ({ showheading = true }) => {
 
       <div className="relative flex flex-col gap-8 justify-center items-center w-full text-center">
         {showheading && (
-          <h1 className="text-2xl font-semibold">Quick Inquiry Now</h1>
+          <h1 className="text-2xl font-semibold text-white">
+            Quick Inquiry Now
+          </h1>
         )}
         <form
           onSubmit={handleSubmit}

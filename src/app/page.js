@@ -5,21 +5,49 @@ import HomeChamberSlider from "@/feature/home/HomeChamberSlider";
 import HomeSlider from "@/feature/home/HomeSlider";
 import MainWebSite from "@/templates/MainWebsite";
 
+export async function generateMetadata() {
+  return {
+    title: "Best Astrologer in Siliguri - Jyotish Gyan Kendra",
+    description:
+      "Looking for best Astrologer in Siliguri, Dr Suvabrata Bharati is one of the best astrologer in Siliguri famous for love marriage vastu kundali astrology services.",
+  };
+}
+
+async function getPageData() {
+  try {
+    const sliderRes = await fetch(
+      `${process.env.API_URI}/api/sliders?isActive=true`
+    );
+    const sliders = await sliderRes.json();
+    return { sliders: sliders.sliders };
+  } catch (error) {
+    console.log(error);
+    return { sliders: [] };
+  }
+}
+
 export default async function Home() {
   const pageData = await getPageData();
   const { sliders } = pageData;
   const content = {
     imgsrc: "/images/abouthome.jpg",
-    heading: "Best Trusted Astrologer in Siliguri, North Bengal",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Ut metus adipiscing sagittis venenatis nisl. Ac nec aliquet mauris magnis. Leo sollicitudin integer arcu vel maecenas vel facilisi. Dictum sed consequat vel suspendisse commodo rhoncus ac. Magna nec tellus tellus platea feugiat in sed. Etiam in condimentum a libero ultricies risus. Urna scelerisque nisi eget arcu varius ac aliquet proin integer. Eget viverra pharetra adipiscing mi velit et viverra. Vestibulum magna porttitor ac eget massa sollicitudin vel sem purus. Sed elit senectus aliquam feugiat. At adipiscing enim pellentesque adipiscing sollicitudin.Elit condimentum arcu mattis tempus et id egestas consequat dui. Venenatis vitae semper euismod eleifend tincidunt sagittis id at. Elit suspendisse ullamcorper urna eget urna facilisis hendrerit. Consequat nec fames ipsum aliquam. Vestibulum vulputate ut amet eu sed adipiscing mattis. Sit arcu magna at tincidunt. Consequat mollis vitae consectetur ipsum ut nunc sed. Sit nec mauris vulputate euismod egestas libero. Turpis dolor sed turpis nunc. <br> Velit lobortis vel dictum nunc morbi tellus. Morbi commodo nec velit elementum nunc et ut fermentum. Vitae fringilla eget lorem semper sagittis. Adipiscing non aliquet sagittis arcu. Pulvinar nunc integer tempor at mauris ut odio. Faucibus bibendum rhoncus bibendum faucibus condimentum aliquet dolor at nunc. Luctus velit ullamcorper faucibus pellentesque. Volutpat morbi proin fringilla ac gravida vitae non quisque ut. In sit sed cursus fusce non. Sollicitudin proin libero mattis vulputate felis egestas id. Netus libero sit nec sapien tellus ut. Egestas amet pharetra phasellus ut at consectetur. <br> Sit turpis elit arcu ligula sed. Tincidunt volutpat tempus molestie odio quis ipsum integer. Cras sed risus ultricies ut turpis sit vitae. Eget curabitur ultrices eget pharetra ultricies ipsum. Commodo habitant sed pulvinar dictumst pretium pulvinar consectetur. Sit nisl faucibus dolor viverra ullamcorper tellus ultrices vitae. Vel venenatis facilisis sit dui. Dolor maecenas ipsum vitae sit turpis ultricies purus commodo. Enim lectus volutpat et vitae id accumsan sit adipiscing.",
+    heading:
+      "Your Stars Talk! Hear them out loud big time - Visit the Best Astrologer in Siliguri",
+    description: `
+      Amidst all the chaos of daily life, having a trusted astrologer by your side makes life easier. Sri Suvabrata Bharti, unanimously known as the <b>best astrologer in Siliguri,</b> is here to guide you through your trying times and take you to your potential! <br/> <br/>
+      Sri Suvabrata Bharti is known for his immaculate reading of astrology and the way he simplifies one of the toughest sciences from medieval ages. His accuracy helps people find rhythm back in life, succeed through tough times, succeed in career and achieve excellence in life. His knowledge, education, and pure passion for the subject further makes him the <b>best astrologer in Siliguri</b>. <br/> <br/>
+      We understand that life gets complicated and all we need at times is someone to show us the light at the end of the tunnel. Sri Suvabrata Bharti just becomes the perfect person who would guide you and show you the hope and positives coming in life. His predictions are sure to thrill you because your rollercoaster ride to success gets the perfect roadmap through them. The astrologer delves deep into your birth chart to indeed patterns and nuances that foretell the future. His popularity as the <b>best astrologer in Siliguri</b> is further enhanced due to people flocking to him in numbers just by the positive word of mouth about him. If you are looking to understand your astrology based prediction, Sri Suvabrata Bharti is the man to go.
+      `,
   };
 
   const whyuscontent = {
     imgsrc: "/images/whychoose.jpg",
-    heading: "Why Choose Jyotish Gyan Kendra",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Ut metus adipiscing sagittis venenatis nisl. Ac nec aliquet mauris magnis. Leo sollicitudin integer arcu vel maecenas vel facilisi. Dictum sed consequat vel suspendisse commodo rhoncus ac. Magna nec tellus tellus platea feugiat in sed. Etiam in condimentum a libero ultricies risus. Urna scelerisque nisi eget arcu varius ac aliquet proin integer. Eget viverra pharetra adipiscing mi velit et viverra. Vestibulum magna porttitor ac eget massa sollicitudin vel sem purus. Sed elit senectus aliquam feugiat. At adipiscing enim pellentesque adipiscing sollicitudin.Elit condimentum arcu mattis tempus et id egestas consequat dui. Venenatis vitae semper euismod eleifend tincidunt sagittis id at. Elit suspendisse ullamcorper urna eget urna facilisis hendrerit. Consequat nec fames ipsum aliquam. Vestibulum vulputate ut amet eu sed adipiscing mattis. Sit arcu magna at tincidunt. Consequat mollis vitae consectetur ipsum ut nunc sed. Sit nec mauris vulputate euismod egestas libero. Turpis dolor sed turpis nunc. <br> Velit lobortis vel dictum nunc morbi tellus. Morbi commodo nec velit elementum nunc et ut fermentum. Vitae fringilla eget lorem semper sagittis. Adipiscing non aliquet sagittis arcu. Pulvinar nunc integer tempor at mauris ut odio. Faucibus bibendum rhoncus bibendum faucibus condimentum aliquet dolor at nunc. Luctus velit ullamcorper faucibus pellentesque. Volutpat morbi proin fringilla ac gravida vitae non quisque ut. In sit sed cursus fusce non. Sollicitudin proin libero mattis vulputate felis egestas id. Netus libero sit nec sapien tellus ut. Egestas amet pharetra phasellus ut at consectetur. <br> Sit turpis elit arcu ligula sed. Tincidunt volutpat tempus molestie odio quis ipsum integer. Cras sed risus ultricies ut turpis sit vitae. Eget curabitur ultrices eget pharetra ultricies ipsum. Commodo habitant sed pulvinar dictumst pretium pulvinar consectetur. Sit nisl faucibus dolor viverra ullamcorper tellus ultrices vitae. Vel venenatis facilisis sit dui. Dolor maecenas ipsum vitae sit turpis ultricies purus commodo. Enim lectus volutpat et vitae id accumsan sit adipiscing.",
+    heading:
+      "With numerous astrology service offerings in the city, the numero uno question that comes to mind is - Why Us?",
+    description: `
+      Our reputation as the <b>best astrologer in Siliguri</b> is not something that has come overnight. It has taken years of hard work and reputation building for us to be at this level. It honestly has been only possible because of the appreciation we have received from every client that ever visited Sri Suvabrata Bharti. It is unlikely that once you interact with him, you will not find the meeting insightful, because every word he speaks comes from what the stars have got to tell you. The astrology services we offer are of top-notch quality as they are created by Sri Suvabrata Bharti with his years of experience and education in science. Unlike others, we truly believe this is all science and we have the power to create the life we want. Birth chart reading and suggestions to create an aura of dominance all around you is what we are experts at. We believe that luck fuels ambition but with astrology by your side, we help you to create a fail-proof plan for the rest of your life events! <br/> <br/>
+      Life is a journey that is best when the path is illuminated. Our astrology services are sure to illuminate your pathway and ensure that you achieve all that the stars have for you in life. To claim such sureshot success and achieve big in life, Sri Suvabrata Bharti is the person that can really change the game for you! 
+      `,
   };
   return (
     <MainWebSite>
@@ -35,17 +63,4 @@ export default async function Home() {
       </div>
     </MainWebSite>
   );
-}
-
-async function getPageData() {
-  try {
-    const sliderRes = await fetch(
-      `${process.env.API_URI}/api/sliders?isActive=true`
-    );
-    const sliders = await sliderRes.json();
-    return { sliders: sliders.sliders };
-  } catch (error) {
-    console.log(error);
-    return { sliders: [] };
-  }
 }

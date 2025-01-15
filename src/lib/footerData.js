@@ -7,11 +7,9 @@ const chambers = {
   heading: "Our Chambers",
   subLinks: (
     <ul className="flex flex-col gap-3 text-sm lg:text-xs xlg:text-base leading-7 lg:leading-10 font-medium text-white">
-      <Link href="/chamber/siliguri-chamber">
-        Sevoke Road, Siliguri WB 734001
-      </Link>
-      <Link href="/chamber/cooch-behar-chamber">
-        Vivekananda Sarani, Cooch Behar, West Bengal 736101
+      <Link href="/chamber/siliguri-chamber">Siliguri, West Bengal, India</Link>
+      <Link href="/chamber/jalpaiguri-chamber">
+        Jalpaiguri, West Bengal, India
       </Link>
     </ul>
   ),
@@ -39,12 +37,12 @@ const contact = {
       <li className="inline-flex gap-2 items-center">
         <IoIosPin />
         <Link
-          href="https://maps.app.goo.gl/8U5b82h1oDpunuCU6"
+          href="https://maps.app.goo.gl/PXNVYDk3fmmP5FnD6"
           target="_blank"
           referrerPolicy="no-referrer"
           className="inline"
         >
-          Vivekananda Sarani, Cooch Behar WB 736101
+          Vivekananda Sarani, Siliguri, West Bengal - 736101
         </Link>
       </li>
     </ul>
@@ -59,9 +57,8 @@ const quickView = {
         { label: "Home", href: "/" },
         { label: "About Us", href: "/about-us" },
         { label: "Our Services", href: "/services/business_astrology" },
-        { label: "Our Chembers", href: "/ourchamber" },
-        { label: "Free Calculator", href: "/freecalculator" },
-        { label: "Media", href: "/gallery" },
+        { label: "Our Chembers", href: "/chambers/siliguri-chamber" },
+        { label: "Media", href: "/photo-gallery" },
         { label: "Contact Us", href: "/contact-us" },
       ].map((link, key) => (
         <li key={key}>
@@ -79,13 +76,18 @@ const ourServices = {
   subLinks: (
     <ul className="flex flex-col gap-4 text-sm lg:text-xs xlg:text-base leading-7 lg:leading-10 font-medium text-white">
       {[
-        { label: "Business Astrology", href: "/services/business_astrology" },
-        { label: "Career Astrology", href: "/services/career_astrology" },
-        { label: "Health Astrology", href: "/services/health_astrology" },
-        { label: "Marriage Astrology", href: "/services/marriage_astrology" },
-        { label: "Match Making", href: "/services/match_making" },
-        { label: "Foregin Travel", href: "#" },
-        { label: "Property Dispute", href: "#" },
+        {
+          label: "Krishna Murti Paddhati",
+          href: "/services/krishnamurti-paddhati",
+        },
+        { label: "Lal Kitab Service", href: "/services/lal-kitab-service" },
+        {
+          label: "Nadi Jyotish Service",
+          href: "/services/nadi-jyotish-service",
+        },
+        { label: "Palmistry Services", href: "/services/palmistry-service" },
+        { label: "Parasar Jyotish", href: "/services/parasar-jyotish" },
+        { label: "Tarot Services", href: "/services/tarot-service" },
       ].map((link, key) => (
         <li key={key}>
           <Link href={link.href} className="text-white truncate">
@@ -102,13 +104,26 @@ const ourBestServices = {
   subLinks: (
     <ul className="flex flex-col gap-4 text-sm lg:text-xs xlg:text-base leading-7 lg:leading-10 font-medium text-white">
       {[
-        { label: "Best Astrologer In Siliguri", href: "#" },
-        { label: "Best Astrologer In Cooch Behar", href: "#" },
-        { label: "Best Astrologer In Dhupguri", href: "#" },
-        { label: "Astrologer In Siliguri", href: "#" },
-        { label: "Astrologer In Cooch Behar", href: "#" },
-        { label: "Marriage Astrologer In Siliguri", href: "#" },
-        { label: "Business Astrologer In Siliguri", href: "#" },
+        {
+          label: "Best Astrologer In Siliguri",
+          href: "/chambers/siliguri-chamber",
+        },
+        {
+          label: "Best Astrologer In Jalpaiguri",
+          href: "/chambers/jalpaiguri-chamber",
+        },
+        {
+          label: "Best Astrologer In Gangtok",
+          href: "/chambers/gangtok-chamber",
+        },
+        {
+          label: "Best Astrologer In Darjeeling",
+          href: "/chambers/darjeeling-chamber",
+        },
+        {
+          label: "Best Astrologer In Cooch Behar",
+          href: "/chambers/coochbehar-chamber",
+        },
       ].map((link, key) => (
         <li key={key}>
           <Link href={link.href} className="text-white truncate">
