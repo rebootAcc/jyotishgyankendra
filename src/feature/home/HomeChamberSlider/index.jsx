@@ -60,7 +60,7 @@ export default function HomeChamberSlider() {
   ];
 
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-6 lg:gap-12">
       <HeadingDesign heading={"Our Chamber"} />
       <Slider {...settings}>
         {data.map((item, index) => (

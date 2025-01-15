@@ -1,6 +1,8 @@
+"use client";
 import useElementHeight from "@/hooks/useElementHeight";
 import React, { useEffect, useState } from "react";
 import EnquiryForm from "../contacts/EnquiryForm";
+import Image from "next/image";
 
 const ChambersPageDesign = ({
   imgsrc,

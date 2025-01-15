@@ -1,3 +1,4 @@
+import { ChambersData } from "./chamberData";
 import { ServiceData } from "./serviceData";
 
 const navLinks = [
@@ -17,8 +18,11 @@ const navLinks = [
     })),
   },
   {
-    text: "Location",
-    href: "/location",
+    text: "Chamber",
+    subMenu: ChambersData.map((item) => ({
+      text: item.heading,
+      href: item.href,
+    })),
   },
   {
     text: "Media",

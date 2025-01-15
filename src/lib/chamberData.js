@@ -1,7 +1,7 @@
 const chambers = [
   {
     heading: "Siliguri",
-    href: "/chamber/siliguri-chamber",
+    href: "/chambers/siliguri-chamber",
     imgsrc: "/images/Siliguri.jpg",
     maplink:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.787677738652!2d88.435976!3d26.7192292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39e441631e787227%3A0xa60ad0369adc598c!2sJyotish%20Gyan%20Kendra%20-%20Best%20Astrologer%20in%20Siliguri!5e0!3m2!1sen!2sin!4v1736860815270!5m2!1sen!2sin",
