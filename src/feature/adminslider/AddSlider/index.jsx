@@ -1,6 +1,5 @@
 "use client";
 import { addSlider } from "@/actions/slideractions";
-import { add } from "date-fns";
 import { useState } from "react";
 export default function AddSlider() {
   const [sliderName, setSliderName] = useState("");

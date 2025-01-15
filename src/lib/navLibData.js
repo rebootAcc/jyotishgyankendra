@@ -24,8 +24,12 @@ const navLinks = [
     text: "Media",
     subMenu: [
       {
-        href: "/press-release",
-        text: "Press Release",
+        href: "/photo-gallery",
+        text: "Photo Gallery",
+      },
+      {
+        href: "/video-gallery",
+        text: "Video Gallery",
       },
     ],
   },

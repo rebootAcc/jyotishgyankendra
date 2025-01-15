@@ -1,6 +1,7 @@
 import { connectToDataBase } from "@/db/connection";
 import Media from "@/models/Media";
 import { deleteFile } from "@/utils/cloudinary";
+import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 
 export async function GET(req, { params }) {
