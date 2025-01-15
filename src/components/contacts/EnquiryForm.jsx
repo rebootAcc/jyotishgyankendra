@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 const EnquiryForm = ({ showheading = true }) => {
   const [formData, setFormData] = useState({
     name: "",
+    mobile: "",
     dob: null,
     time: "",
     gender: "",
@@ -26,22 +27,22 @@ const EnquiryForm = ({ showheading = true }) => {
 
     const whatsappMessage = `Name: ${formData.name}\nDOB: ${
       formData.dob ? formData.dob.toLocaleDateString() : ""
-    }\ntime: ${formData.time}\nBirth Place: ${formData.birthplace}\ngender: ${
-      formData.gender
+    }\ntime: ${formData.time}\nBirth Place: ${formData.birthplace}\nMobile: ${
+      formData.mobile
     }\nMessage: ${formData.message}`;
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
 
     const isDesktop = window.matchMedia("(min-width: 1024px)").matches;
     const whatsappUrl = isDesktop
-      ? `https://web.whatsapp.com/send?phone=916294334600&text=${encodedMessage}`
-      : `https://api.whatsapp.com/send?phone=916294334600&text=${encodedMessage}`;
+      ? `https://web.whatsapp.com/send?phone=917001790055&text=${encodedMessage}`
+      : `https://api.whatsapp.com/send?phone=917001790055&text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
     setFormData({
       name: "",
+      mobile: "",
       dob: null,
       time: "",
-      gender: "",
       birthplace: "",
       message: "",
     });
@@ -78,8 +79,8 @@ const EnquiryForm = ({ showheading = true }) => {
           />
           <input
             type="tel"
-            name="Mobile"
-            value={formData.name}
+            name="mobile"
+            value={formData.mobile}
             onChange={handleChange}
             placeholder="Mobile No"
             required

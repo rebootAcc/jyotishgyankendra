@@ -1,5 +1,6 @@
 "use client";
 import useElementHeight from "@/hooks/useElementHeight";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { IoIosPin } from "react-icons/io";
@@ -28,11 +29,28 @@ const ContactUsStyle = () => {
       content: [
         {
           logo: <FaPhoneVolume className="size-5 mt-1" />,
-          details: "+91 7001 790055",
+          details: (
+            <div className="flex gap-1">
+              <Link href="tel:917001790055" className="inline">
+                +91 70017 90055
+              </Link>
+              ,
+              <Link href="tel:919474323694" className="inline">
+                +91 94743 23694
+              </Link>
+            </div>
+          ),
         },
         {
           logo: <IoMailSharp className="size-5 mt-1" />,
-          details: "jyotishgyankendra@gmail.com",
+          details: (
+            <Link
+              href="mailTo:astrologersubhabrata2003@gmail.com"
+              className="inline"
+            >
+              astrologersubhabrata2003@gmail.com
+            </Link>
+          ),
         },
         {
           logo: <IoIosPin className="size-5 mt-1" />,
@@ -52,11 +70,28 @@ const ContactUsStyle = () => {
       content: [
         {
           logo: <FaPhoneVolume className="size-5 mt-1" />,
-          details: "+91 7001 790055",
+          details: (
+            <div className="flex gap-1">
+              <Link href="tel:917001790055" className="inline">
+                +91 70017 90055
+              </Link>
+              ,
+              <Link href="tel:919474323694" className="inline">
+                +91 94743 23694
+              </Link>
+            </div>
+          ),
         },
         {
           logo: <IoMailSharp className="size-5 mt-1" />,
-          details: "jyotishgyankendra@gmail.com",
+          details: (
+            <Link
+              href="mailTo:astrologersubhabrata2003@gmail.com"
+              className="inline"
+            >
+              astrologersubhabrata2003@gmail.com
+            </Link>
+          ),
         },
         {
           logo: <IoIosPin className="size-5 mt-1" />,
@@ -93,7 +128,7 @@ const ContactUsStyle = () => {
                     className="flex items-start gap-4 text-sm lg:text-lg"
                     key={id}
                   >
-                    <span className=" text-site-main-blue  ">{item.logo}</span>
+                    <span className=" text-site-main-blue">{item.logo}</span>
                     {item.details}
                   </div>
                 ))}

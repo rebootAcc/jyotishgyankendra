@@ -7,8 +7,10 @@ const chambers = {
   heading: "Our Chambers",
   subLinks: (
     <ul className="flex flex-col gap-3 text-sm lg:text-xs xlg:text-base leading-7 lg:leading-10 font-medium text-white">
-      <Link href="/chamber/siliguri-chamber">Siliguri, West Bengal, India</Link>
-      <Link href="/chamber/jalpaiguri-chamber">
+      <Link href="/chambers/siliguri-chamber">
+        Siliguri, West Bengal, India
+      </Link>
+      <Link href="/chambers/jalpaiguri-chamber">
         Jalpaiguri, West Bengal, India
       </Link>
     </ul>
@@ -23,6 +25,10 @@ const contact = {
         <FaPhoneVolume />{" "}
         <Link href="tel:917001790055" className="inline">
           +91 70017 90055
+        </Link>
+        ,
+        <Link href="tel:919474323694" className="inline">
+          +91 94743 23694
         </Link>
       </li>
       <li className="inline-flex gap-2 items-center">

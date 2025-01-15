@@ -11,8 +11,8 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/logo.svg",
-        href: "/logo.svg",
+        url: `${process.env.API_URI}/logo.svg`,
+        href: `${process.env.API_URI}/logo.svg`,
       },
     ],
   },
@@ -21,7 +21,7 @@ export const metadata = {
     description:
       "Looking for best Astrologer in Siliguri, Dr Suvabrata Bharati is one of the best astrologer in Siliguri famous for love marriage vastu kundali astrology services.",
     images: {
-      url: "/logo.svg",
+      url: `${process.env.API_URI}/logo.svg`,
     },
   },
 };

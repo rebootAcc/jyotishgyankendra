@@ -4,14 +4,18 @@ import { generateToken } from "@/utils/jsontoken";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
-export default async function POST(req) {
+export async function POST(req) {
   try {
     await connectToDataBase();
-    const { emailOrPhone, password } = req.body;
+    const body = await req.json();
+    const { emailOrPhone, password } = body;
 
     // Validate input
     if (!emailOrPhone || !password) {
-      return NextResponse.json({ message: "All fields are required" });
+      return NextResponse.json(
+        { message: "All fields are required" },
+        { status: 400 }
+      );
     }
     const user = await User.findOne({
       $or: [{ email: emailOrPhone }, { phone: emailOrPhone }],
