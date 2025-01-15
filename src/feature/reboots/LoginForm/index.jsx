@@ -35,7 +35,6 @@ export default function LoginForm() {
         }),
       });
       const result = await response.json();
-      console.log(result);
       if (result && response.ok) {
         router.push("/admin/slider");
       }
