@@ -35,8 +35,8 @@ export default function LoginForm() {
         }),
       });
       const result = await response.json();
+      console.log(result);
       if (result && response.ok) {
-        localStorage.setItem("name", result.name);
         router.push("/admin/slider");
       }
     } catch (error) {

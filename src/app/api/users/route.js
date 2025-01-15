@@ -1,4 +1,7 @@
+import { connectToDataBase } from "@/db/connection";
 import User from "@/models/User";
+import { generateCustomId } from "@/utils/generateCustomId";
+import { generateToken } from "@/utils/jsontoken";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -56,10 +59,10 @@ export async function POST(req) {
     const newUser = await data.save();
 
     // Generate a JWT token (if applicable, adjust according to your authentication setup)
-    const token = generateToken({ ...newUser });
+    const token = generateToken({ ...newUser._doc });
     const cookieStore = await cookies();
     cookieStore.set("token", token);
-    return NextResponse.json({ ...newUser }, { status: 200 });
+    return NextResponse.json({ ...newUser._doc }, { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: "An Error Occured" }, { status: 500 });
