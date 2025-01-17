@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
-export default async function GET(req) {
+export async function GET(req) {
   try {
     const cookieStore = await cookies();
     cookieStore.delete("token");
